@@ -1,8 +1,25 @@
 
+{% extends 'base.html' %}
+
+{% block title %}
+Products
+{% endblock %}
+
+{% block content %}
 
 
 {% for obj in allproducts %}
 
-{{obj.title}}   <br/>
+<div class="container">
+    <br/>
+    <br/>
+        <h4><a href="{% url 'product:productsdetail' obj.slug %}">{{obj.title}} </a> </h4>
+        <img src="{{obj.image.url}}" alt="" class="img-fluid" style="height: 200px; object-fit: contain;">
+
+</div>
+    
 
 {% endfor %}
+
+
+{% endblock %}
