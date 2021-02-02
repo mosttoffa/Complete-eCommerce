@@ -32,13 +32,18 @@ class Product(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(blank=True, unique=True)
     image = models.ImageField(upload_to='products/')
-    price = models.PositiveIntegerField()
+    marked_price = models.PositiveIntegerField(default=False, null=True)       
+    selling_price = models.PositiveIntegerField()
     description = models.TextField()
+    warranty = models.CharField(max_length=350, null=True, blank=True)
+    return_policy = models.CharField(max_length=350, null=True, blank=True)
+    view_count = models.PositiveIntegerField(default=0) 
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
 
     objects = ProductManager()
-
 
     def __str__(self):
         return self.title

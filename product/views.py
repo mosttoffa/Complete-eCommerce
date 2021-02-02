@@ -8,9 +8,8 @@ from .models import *
 
 # view from here
 
-class HomeView(TemplateView):  # Home View 
-    template_name = "home.html"
-
+# class HomeView(TemplateView):  # Home View 
+#     template_name = "home.html"
 
 
 class ProductFeaturedListView(ListView):

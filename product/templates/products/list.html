@@ -11,11 +11,11 @@ Products
 {% for obj in allproducts %}
 
 <div class="container">
-    <br/>
-    <br/>
-        <h4><a href="{% url 'product:productsdetail' obj.slug %}">{{obj.title}} </a> </h4>
+        <br/>
+        <br/>
         <img src="{{obj.image.url}}" alt="" class="img-fluid" style="height: 200px; object-fit: contain;">
-
+        <h4><a href="{% url 'product:productsdetail' obj.slug %}">{{obj.title}} </a> </h4>
+        <p class="mt-3">Price: <strike>Tk. {{obj.marked_price}}</strike> <br/> Tk. {{obj.selling_price}}</p>
 </div>
     
 
