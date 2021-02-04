@@ -64,6 +64,8 @@ class ProductDetailView(DetailView):
         # return instance
         try:
             instance = Product.objects.get(slug=slug, active=True)
+            instance.view_count += 1
+            instance.save()
         except Product.DoesNotExist:
             raise Http404("Product not found..")
         except Product.MultipleObjectsReturned:
