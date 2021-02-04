@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from .models import Product
 from django.views.generic import TemplateView, ListView, DetailView
 from django.http import Http404
-
-from .models import *
 
 
 
