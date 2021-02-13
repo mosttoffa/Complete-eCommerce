@@ -6,8 +6,6 @@ from django.conf.urls.static import static
 
 from .views import HomeView
 
-from carts.views import cart_home
-
 
 
 
@@ -19,7 +17,7 @@ urlpatterns = [
     url(r'^product/', include('product.urls')),
     url(r'^search/', include('search.urls')),
 
-    url(r'^cart/$', cart_home ,name='cart' ),
+    url(r'^cart/', include('carts.urls')),
 
 ]
 

@@ -22,12 +22,19 @@ Product Details
                 {% endfor %}
             </div> -->
         </div>
+
+        <div class="col-md-8">
+            {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+
+           
+        </div>
+
         <div class="col-md-8">
             <h4>{{allproducts.title}}</h4>
             <!-- <h5>Category: {{product.category}}</h5> -->
             <h5>Price: <strike>Tk. {{allproducts.marked_price}}</strike> <br/> Tk. {{allproducts.selling_price}}</h5>
-            <a href="" class="btn btn-info">Add To Cart</a>
-            <hr>
+
+                    <hr>
             <p>Product added {{ allproducts.timestamp|timesince}} ago </p><br/>
             <h4>Product Viewed {{allproducts.view_count}} times</h4>
             <p class="text-info">Warranty: {{allproducts.warranty}}</p>
@@ -35,6 +42,7 @@ Product Details
             <hr>
             <p>{{allproducts.description}}</p>
         </div>
+
     </div>
 
 </div>

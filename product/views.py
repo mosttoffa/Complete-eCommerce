@@ -3,7 +3,7 @@ from .models import Product
 from django.views.generic import TemplateView, ListView, DetailView
 from django.http import Http404
 
-
+from carts.models import Cart
 
 # view from here
 
@@ -51,16 +51,15 @@ class ProductDetailView(DetailView):
    
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
+        cart_obj, new_obj = Cart.objects.new_or_get(self.request)
+        context['cart'] = cart_obj
         return context
 
     ### Product manager
     def get_object(self, *args, **kwargs):   
         request = self.request
         slug = self.kwargs.get('slug')
-        # instance = get_object_or_404(Product, slug=slug, active=True)
-        # if instance is None:
-        #     raise Http404("Product doesn't exist")
-        # return instance
+        
         try:
             instance = Product.objects.get(slug=slug, active=True)
             instance.view_count += 1
