@@ -8,7 +8,6 @@ from .views import HomeView
 
 
 
-
 urlpatterns = [
 
     url(r'^$', HomeView.as_view(),name='home' ),
@@ -16,7 +15,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^product/', include('product.urls')),
     url(r'^search/', include('search.urls')),
-
     url(r'^cart/', include('carts.urls')),
 
 ]
