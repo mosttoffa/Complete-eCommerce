@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'^search/', include('search.urls')),
     url(r'^cart/', include('carts.urls')),
 
+    url(r'^', include('accounts.urls')),
+
 ]
 
 if settings.DEBUG:
